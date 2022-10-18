@@ -35,5 +35,24 @@ public class AdminController {
         return adminService.save(admin);
     }
 
+    @PostMapping("/all")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Admin save1 (@RequestBody Admin admin) {
+        return adminService.save(admin);
+    }
+
+    //el put  la ruta es /api/Admin/update
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Admin update (@RequestBody Admin admin) {
+        return adminService.update(admin);
+    }
+
+    //para el delete la ruta es /api/Admin/delete
+    @DeleteMapping("/{id}")
+    public boolean delete (@PathVariable ("id") int id) {
+        return adminService.deleteAdmin(id);
+    }
+
 
 }

@@ -32,6 +32,25 @@ public class ScoreController {
         return scoreService.save(score);
     }
 
+    @PostMapping("/all")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Score save1(@RequestBody Score score) {
+        return scoreService.save(score);
+    }
+
+    //el put  la ruta es /api/Score/update
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Score update(@RequestBody Score score) {
+        return scoreService.update(score);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id") int id) {
+        return scoreService.delete(id);
+
+    }
 
 }
 

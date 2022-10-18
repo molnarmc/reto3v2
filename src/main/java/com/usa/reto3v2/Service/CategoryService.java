@@ -42,16 +42,23 @@ public class CategoryService {
         if(category.getId()!=null){
             Optional<Category> categoryEncontrada = categoryRepository.getCategory(category.getId());
             if (!categoryEncontrada.isEmpty()){
-                if (category.getDescription()!=null){
+                if (category.getDescription()!= null){
                     categoryEncontrada.get().setDescription(category.getDescription());
                 }
-                if(category.getName()!=null){
+                if(category.getName()!= null){
                     categoryEncontrada.get().setName(category.getName());
                 }
                 return categoryRepository.save(categoryEncontrada.get());
             }
         }
         return category;
+    }
+    public boolean delete(int id) {
+        Boolean resultado = getCategory(id).map(element -> {
+            categoryRepository.delete(element);
+            return true;
+        }).orElse(false);
+        return resultado;
     }
 
 }

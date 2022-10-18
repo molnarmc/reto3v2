@@ -32,6 +32,24 @@ public class RoomController {
         return roomService.save(room);
     }
 
+    @PostMapping("/all")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Room save1(@RequestBody Room room) {
+        return roomService.save(room);
+    }
+
+    //el put  la ruta es /api/Room/update
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Room update(@RequestBody Room room) {
+        return roomService.update(room);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id") int id) {
+        return roomService.delete(id);
+    }
 
 }
 

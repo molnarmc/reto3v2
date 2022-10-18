@@ -32,6 +32,23 @@ public class ClientController {
         return clientService.save(client);
     }
 
+    @PostMapping("/all")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Client save1 (@RequestBody Client client) {
+        return clientService.save(client);
+    }
+
+    //el put  la ruta es /api/Client/update
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Client update (@RequestBody Client client) {
+        return clientService.update(client);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete (@PathVariable("id") int id) {return clientService.delete(id);}
+
 
 }
 
